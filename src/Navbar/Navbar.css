@@ -1,8 +1,6 @@
 .logo-image{
     width: 46px;
     height: 46px;
-    margin-top: -10px;
-    margin-left: 10px;
 }
 
 .pfp-image{
@@ -11,6 +9,7 @@
     padding-top: 10px;
     margin-right: 10px;
 }
+
 
 .navbar{
     background-color: #383838;

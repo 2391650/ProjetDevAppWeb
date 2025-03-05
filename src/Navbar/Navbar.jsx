@@ -6,27 +6,21 @@ import pfp from '../images/pfp.png';
 function Navbar() {
   return (
     <nav class="navbar navbar-expand-lg sticky-top" >
-      <a class="navbar-brand" href="/">
-        <div class="logo-image">
-          <img src={logo} class="img-fluid"/>
+      <div className="container-fluid">
+        <div className="logo-image">
+          <img src={logo} class="img-fluid" />
         </div>
-      </a>
-      <a class="navbar-brand text-light" href="#">
-        HopQuest
-      </a>
-      <div class="navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-          <li>
-            <a class="nav-link text-light" href="#">
-              Home
-            </a>
-          </li>
-        </ul>
-        <span class="navbar-text text-light">Prof</span>
-        <a class="pfp-image" href='#'>
-          <img src={pfp} class="img-fluid" href="#"/>
-        </a>
+        <h1 class="navbar-brand text-light mr-auto" style={{marginBottom: "-10px", marginLeft: "10px"}} href="#">
+          HopQuest
+        </h1>
+        <div class="d-flex" id="navbarText">
+          <span class="navbar-text text-light">Miss Viki</span>
+          <a class="pfp-image" href='#'>
+            <img src={pfp} class="img-fluid logo-image" href="#" />
+          </a>
+        </div>
       </div>
+
     </nav>
   );
 }
