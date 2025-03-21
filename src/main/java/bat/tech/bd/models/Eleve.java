@@ -9,7 +9,7 @@ public class Eleve {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Long ideleve;
+    private Integer ideleve;
     private String firstname;
 
     private String lastname;

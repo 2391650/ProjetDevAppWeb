@@ -9,7 +9,7 @@ public class Activity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idactivity;
+    private Integer idactivity;
     private Date date;
 
 

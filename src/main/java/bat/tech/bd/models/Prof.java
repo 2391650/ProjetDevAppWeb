@@ -10,7 +10,7 @@ public class Prof {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Long idprof;
+    private Integer idprof;
     private String firstname;
 
     private String lastname;
