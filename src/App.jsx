@@ -1,17 +1,14 @@
 import "./App.css";
-import Navbar from "./Navbar/Navbar";
-import Cards from "./Cards/Cards";
+import Home from "./pages/Home";
 import "bootstrap/dist/css/bootstrap.css";
-import Footer from "./footer/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  return (
-    <>
-      <Navbar/>
-      <Cards/>
-      <Footer/>
-    </>
-  );
+  return <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+    </Routes>
+  </BrowserRouter>;
 }
 
 export default App;

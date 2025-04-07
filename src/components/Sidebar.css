@@ -1,0 +1,13 @@
+.navMenu {
+    width: 240px;
+    background: rgb(73, 72, 74);
+    height: 94.8vh;
+    padding: 20px;
+    position: relative;
+}
+
+ul li {
+    list-style-type: none;
+    font-size: large;
+    padding: 10px;
+}
