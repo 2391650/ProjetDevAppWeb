@@ -1,40 +1,25 @@
 import React from 'react';
-import './Sidebar.css'
+import './Sidebar.css';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
-    return (
-        <div class="navMenu">
-        <ul className='text-light'>
-          <li class="nav-item">
-            <a class="nav-link" href="./callforpapers.html">
-                Call for Papers
-              </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./papersubmission.html">
-                Paper Submission
-              </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./acceptedpapers.html">
-                Accepted Papers
-              </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./program.html">
-                Program
-              </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./rumpsession.html">
-                Rump Session
-              </a>
-          </li>
-          </ul>
-      </div>
 
-        
-    );
+  return (
+    <div class="navMenu">
+      <ul className='text-light'>
+        <li class="nav-item">
+          <Link class="nav-link" to="/">
+            Home
+          </Link>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="/AboutUs" >
+            About Us
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
 }
 
 export default Sidebar;

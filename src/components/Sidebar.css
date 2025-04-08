@@ -1,9 +1,7 @@
 .navMenu {
-    width: 240px;
-    background: rgb(73, 72, 74);
-    height: 94.8vh;
-    padding: 20px;
-    position: relative;
+    width: 250px;
+    background: #2F2F2F;
+    height: 100vh; 
 }
 
 ul li {

@@ -11,9 +11,8 @@ function Navbar() {
           <img src={logo} class="img-fluid" />
         </div>
         <h1
-          class="navbar-brand text-light mr-auto"
-          style={{ marginBottom: "-10px", marginLeft: "10px" }}
-          href="#"
+          class="text-light mr-auto"
+          style={{ marginBottom: "-2px", marginLeft: "10px", fontSize: "25px"}}
         >
           HopQuest
         </h1>
