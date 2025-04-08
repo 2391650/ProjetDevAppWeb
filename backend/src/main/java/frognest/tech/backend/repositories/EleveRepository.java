@@ -1,8 +1,12 @@
 package frognest.tech.backend.repositories;
 
 import frognest.tech.backend.model.Eleve;
+import frognest.tech.backend.model.Groupe;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 public interface EleveRepository extends JpaRepository<Eleve, Long> {
     Eleve findByFirstname(String firstname);
+    List<Eleve> findByGroupe(Groupe groupe); // Ajout de cette méthode
 }
