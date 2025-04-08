@@ -9,3 +9,7 @@ ul li {
     font-size: large;
     padding: 10px;
 }
+
+.nav-link:hover{
+    opacity: 0.6;
+}
