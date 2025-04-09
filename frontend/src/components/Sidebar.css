@@ -1,0 +1,15 @@
+.navMenu {
+    width: 250px;
+    background: #2F2F2F;
+    height: 100vh; 
+}
+
+ul li {
+    list-style-type: none;
+    font-size: large;
+    padding: 10px;
+}
+
+.nav-link:hover{
+    opacity: 0.6;
+}

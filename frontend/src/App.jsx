@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.css";
 import GroupPage from "./pages/GroupPage.jsx";
 import CreateGroup from "./pages/CreateGroup.jsx";
 

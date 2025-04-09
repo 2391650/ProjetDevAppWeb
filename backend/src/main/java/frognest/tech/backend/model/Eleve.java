@@ -13,6 +13,7 @@ public class Eleve {
     private String lastname;
 
     @ManyToOne
+    @JoinColumn(name="idgroup")
     Groupe groupe;
 
     public Long getIdeleve() {

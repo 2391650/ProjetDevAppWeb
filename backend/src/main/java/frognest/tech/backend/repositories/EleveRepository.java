@@ -8,5 +8,7 @@ import java.util.List;
 
 public interface EleveRepository extends JpaRepository<Eleve, Long> {
     Eleve findByFirstname(String firstname);
-    List<Eleve> findByGroupe(Groupe groupe); // Ajout de cette méthode
+    List<Eleve> findByGroupe(Groupe groupe);
+
+    List<Eleve> findByGroupe_Idgroup(Long  idGroupe);
 }

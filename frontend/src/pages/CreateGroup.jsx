@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import red from '../assets/images/redWaves.png';
+import blue from '../assets/images/blueWaves.png';
+import yellow from '../assets/images/yellowWaves.png';
+import purple from '../assets/images/purpleWaves.png';
+import pink from '../assets/images/pinkWaves.png';
+import green from '../assets/images/greenWaves.png';
 
 function CreateGroup() {
     const [groups, setGroups] = useState([]);
@@ -28,6 +34,8 @@ function CreateGroup() {
 
     return (
         <div>
+
+
             <h1>Groupes</h1>
             <form onSubmit={createGroup}>
                 <input
@@ -39,12 +47,25 @@ function CreateGroup() {
                 />
                 <button type="submit">Créer Groupe</button>
             </form>
-            <div>
-                {groups.map((group) => (
-                    <div key={group.idgroup}>
-                        <h3>{group.nomGroupe}</h3>
-                        <button onClick={() => deleteGroup(group.nomGroupe)}>Supprimer</button>
-                        <a href={`/group/${group.idgroup}`}>Voir Éléves</a>
+            <div className="row" style={{ marginTop: "20px" }}>
+                {groups.map((group, index) => (
+                    <div className="col-lg-4 col-md-6 col-sm-12" key={group.idgroup}>
+                        <div className="card" style={{ marginTop: "20px" }}>
+                            <img
+                                src={[green, blue, pink, red, purple, yellow][index % 6]}
+                                alt={group.nomGroupe}
+                                style={{ objectFit: "cover", height: "200px", width: "100%" }}
+                            />
+                            <h5 className="card-title text-light" style={{ position: "absolute", fontSize: "20px", top: "50px", left: "10px" }}>{group.nomGroupe}</h5>
+                            <div className="card-body bg-dark">
+                                <p className="text-light"> Étudiants</p>
+
+                                <i className="bi bi-trash" >
+                                    <button onClick={() => deleteGroup(group.nomGroupe)}></button>
+                                </i>
+                                <a href={`/group/${group.idgroup}`} className="btn btn-primary">Voir Élèves</a>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>

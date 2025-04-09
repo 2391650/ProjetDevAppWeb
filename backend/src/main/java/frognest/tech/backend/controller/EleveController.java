@@ -14,9 +14,11 @@ import java.util.List;
 
 public class EleveController {
 
-    @GetMapping("/read")
-    public List<Eleve> getAll() {
-        return eleveRepository.findAll();
+
+
+    @GetMapping("/read/{groupId}")
+    public List<Eleve> getEleveByIdGroup( @PathVariable Long groupId) {
+        return eleveRepository.findByGroupe_Idgroup(groupId);
     }
 
     @Autowired
