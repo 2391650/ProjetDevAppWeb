@@ -1,0 +1,16 @@
+.addGroup{
+    position: relative;
+    color: black;
+    padding-right: 100px;
+    text-align: end;
+    margin-top: 10px;
+}
+
+.background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../assets/images/HopQuest_Background.png");
+    background-position: center;
+    background-size: cover;
+}
