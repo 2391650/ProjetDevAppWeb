@@ -6,14 +6,14 @@ import jakarta.persistence.*;
 public class Eleve {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long ideleve;
+
     private String firstname;
 
     private String lastname;
 
     @ManyToOne
-    @JoinColumn(name = "idgroup")
+    @JoinColumn(name="idgroup")
     Groupe groupe;
 
     public Long getIdeleve() {

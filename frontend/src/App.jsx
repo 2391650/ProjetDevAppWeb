@@ -1,9 +1,9 @@
 import "./App.css";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
-import GroupPage from "./pages/GroupPage.jsx";
 import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import GroupPage from "./pages/GroupPage.jsx";
 
 function App() {
   return <BrowserRouter>

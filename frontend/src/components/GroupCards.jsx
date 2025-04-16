@@ -74,7 +74,7 @@ function GroupCards() {
                     <div className="col-lg-4 col-md-6 col-sm-12" key={index} >
                         <div className="card" style={{marginTop: "20px", marginLeft:"100px", maxWidth:"450px"}}>
                             <img
-                                src={[green, blue, pink, red, purple, yellow][index % 6]} // Utilisation d'une image basée sur l'index
+                                src={[green, blue, pink, red, purple, yellow][index % 6]}
                                 alt={group.nomGroupe}
                                 style={{objectFit: "cover", height: "200px", width: "100%"}}
                             />
@@ -98,7 +98,7 @@ function GroupCards() {
                                 </div>
                             </div>
                                 <div className="card-body bg-dark">
-                                    <p className="text-light"> Students</p> {/* Remplacer par le nombre réel d'élèves si disponible */}
+                                    <p className="text-light"> Students</p>
                                     <Link to={`/group/${group.idgroup}`}>
                                         <button className="groupBtn">
                                             See Group

@@ -7,8 +7,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface EleveRepository extends JpaRepository<Eleve, Long> {
-    Eleve findByFirstname(String firstname);
-    List<Eleve> findByGroupe(Groupe groupe); // Ajout de cette méthode
 
-    List<Eleve> findByGroupe_Idgroup(Long idGroupe);
+    Eleve findByFirstname(String firstname);
+
+    Eleve findByIdeleve(Long ideleve);
+
+    List<Eleve> findByGroupe(Groupe groupe);
+
+    List<Eleve> findByGroupe_Idgroup(Long  idGroupe);
 }

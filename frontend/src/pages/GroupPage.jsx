@@ -12,9 +12,8 @@ function GroupPage() {
     }, []);
 
     const fetchEleves = async () => {
-        // Remplacez par l'API qui renvoie les élèves du groupe
-        const response = await axios.get(`http://localhost:8080/eleve/read`);
-        setEleves(response.data.filter(eleve => eleve.groupe.idgroup === parseInt(id)));
+        const response = await axios.get(`http://localhost:8181/eleve/read/`);
+        setEleves(response.data);
     };
 
     return (
@@ -25,7 +24,6 @@ function GroupPage() {
                 {eleves.map((eleve) => (
                     <div key={eleve.ideleve}>
                         <h3>{eleve.firstname} {eleve.lastname}</h3>
-                        {/* Ajoutez des boutons pour modifier et supprimer */}
                     </div>
                 ))}
             </div>

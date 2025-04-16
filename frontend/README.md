@@ -1,4 +1,12 @@
-# ProjetDevAppWeb
-<h3>Description du projet:</h3>
+# React + Vite
 
-HopQuest est une application web qui permet aux enseignants du primaire et du secondaire de suivre le progrès de leurs élèves à travers leurs apprentissages. Elle sera aussi utilisée par les élèves pour qu’ils puissent se situer dans leur progrès sur l’écran dans la classe. L’application a pour but de motiver les élèves à travailler tout en s’amusant grâce à son contenu interactif. Son visuel coloré et attrayant capte l’attention des utilisateurs favorisant une meilleure progression académique. Avec cette application, chaque enseignant peut ressentir la satisfaction de maîtriser pleinement sa classe, transformant la gestion des élèves en une expérience fluide et enrichissante. 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="hopquest@localhost" uuid="af9e902c-93a4-4bdd-9d07-f9aa41c956ca">
+    <data-source source="LOCAL" name="hopquest@localhost" uuid="5c2b033e-e1e8-41fb-9c79-3136a33c698d">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
