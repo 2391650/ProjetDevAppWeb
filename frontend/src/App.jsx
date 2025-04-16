@@ -1,18 +1,18 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import "./App.css";
+import Home from "./pages/Home";
+import AboutUs from "./pages/AboutUs";
 import "bootstrap/dist/css/bootstrap.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GroupPage from "./pages/GroupPage.jsx";
-import CreateGroup from "./pages/CreateGroup.jsx";
 
 function App() {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<CreateGroup />} />
-                <Route path="/group/:id" element={<GroupPage />} />
-            </Routes>
-        </Router>
-    );
+  return <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/aboutUs" element={<AboutUs/>}/>
+      <Route path="/group/:id" element={<GroupPage/>}/>
+    </Routes>
+  </BrowserRouter>;
 }
 
 export default App;

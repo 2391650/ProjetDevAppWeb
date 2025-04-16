@@ -31,16 +31,13 @@ public class EleveController {
     }
 
 
-
-
-    @DeleteMapping("/delete/{firstname}")
-    public String deleteEleveByName(@PathVariable String firstname) {
-        Eleve eleve = eleveRepository.findByFirstname(firstname);
-        if (eleve == null) {
-            throw new RuntimeException("Not found: " + firstname);
+    @DeleteMapping("/delete/{ideleve}")
+    public String deleteEleveById(@PathVariable Long ideleve) {
+        if(!eleveRepository.existsById(ideleve)){
+            throw new RuntimeException("Not found: ");
         }
-        eleveRepository.delete(eleve);
-        return "Eleve '" + firstname + "' has been deleted successfully.";
+        eleveRepository.deleteById(ideleve);
+        return  "Customer with id "+ideleve+" has been deleted success.";
     }
 
 

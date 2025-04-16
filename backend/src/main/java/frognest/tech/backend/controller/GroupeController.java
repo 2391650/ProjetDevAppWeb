@@ -38,7 +38,7 @@ public class GroupeController {
             throw new RuntimeException("Not found: " + nomGroupe);
         }
 
-        // Trouver et supprimer les élèves associés
+
         List<Eleve> eleves = eleveRepository.findByGroupe(groupe);
         for (Eleve eleve : eleves) {
             eleveRepository.delete(eleve);

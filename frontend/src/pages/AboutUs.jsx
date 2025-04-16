@@ -10,7 +10,7 @@ function AboutUs() {
             <Navbar />
             <div style={{ display: "flex" }}>
                 <Sidebar />
-                <div className='background'>
+                <div >
                     <h1 style={{textAlign:"center", paddingTop:'100px', fontSize:'10vh', fontStyle:"bold"}}>About Us</h1>
                     <div className='content'>
                         <div>

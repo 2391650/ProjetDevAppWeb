@@ -1,9 +1,8 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import Cards from '../components/Cards';
 import Sidebar from '../components/Sidebar';
+import GroupCards from "../components/GroupCards.jsx";
 import './Home.css'
-import {Link} from "react-router-dom";
 
 function Home() {
   return (
@@ -13,12 +12,7 @@ function Home() {
         <Sidebar />
 
         <div className='background' >
-            <Link to={"/CreateGroup"}>
-                <h1 className="addGroup">
-                    +
-                </h1>
-            </Link>
-            <Cards/>
+            <GroupCards/>
         </div>
       </div>
     </div>

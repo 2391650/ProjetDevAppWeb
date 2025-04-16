@@ -1,22 +1,3 @@
-.background {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-}
-
-.background::before {
-    content: "";
-    background-image: url("../assets/images/HopQuest_Logo.png");
-    background-position: center;
-    background-size: cover; 
-    opacity: 0.2;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
 .content {
     position: relative; /* Garder pour pouvoir surligner le text */
     background-color: #464646;
