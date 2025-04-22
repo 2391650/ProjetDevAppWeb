@@ -19,7 +19,7 @@ function GroupPage() {
     return (
         <div>
             <h1>Élèves du Groupe</h1>
-            <CreateEleve groupId={id} fetchEleves={fetchEleves} />
+            <CreateEleve groupId={id} fetchEleves={fetchEleves}/>
             <div>
                 {eleves.map((eleve) => (
                     <div key={eleve.ideleve}>

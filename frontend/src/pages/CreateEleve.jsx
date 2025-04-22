@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import dots from "../assets/images/dots.png";
 
 function CreateEleve({ groupId }) {
     const [firstname, setFirstname] = useState("");
@@ -37,29 +38,60 @@ function CreateEleve({ groupId }) {
 
     return (
         <div>
-            <form onSubmit={createEleve}>
-                <input
-                    type="text"
-                    value={firstname}
-                    onChange={(e) => setFirstname(e.target.value)}
-                    placeholder="Prénom"
-                    required
-                />
-                <input
-                    type="text"
-                    value={lastname}
-                    onChange={(e) => setLastname(e.target.value)}
-                    placeholder="Nom"
-                    required
-                />
-                <button type="submit">Create Élève</button>
-            </form>
-            <h2>Liste des Élèves</h2>
+            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Create Eleve
+            </button>
+            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog"
+                 aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Create Eleve</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            <form onSubmit={createEleve}>
+                                <input
+                                    type="text"
+                                    value={firstname}
+                                    onChange={(e) => setFirstname(e.target.value)}
+                                    placeholder="Prénom"
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    value={lastname}
+                                    onChange={(e) => setLastname(e.target.value)}
+                                    placeholder="Nom"
+                                    required
+                                />
+                                <button type="submit">Create Élève</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2>Activite</h2>
             <ul>
                 {eleves.map((eleve) => (
                     <li key={eleve.idgroup}>
                         {eleve.firstname} {eleve.lastname}
-                        <button onClick={() => deleteEleve(eleve.ideleve)}>Delete</button>
+                        <div className="dropdown mr-1" style={{display:"inline-block"}}>
+                            <button type="button" className="btn"
+                                    id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="false"
+                                    aria-expanded="false" data-offset="10,10">
+                                <img src={dots} style={{height: "30px"}}/>
+                            </button>
+                            <div className="dropdown-menu">
+                                <a className="dropdown-item" href="#">View Student</a>
+                                <button className="dropdown-item"
+                                        onClick={() => deleteEleve(eleve.ideleve)}>Delete
+                                </button>
+                            </div>
+                        </div>
                     </li>
                 ))}
             </ul>
