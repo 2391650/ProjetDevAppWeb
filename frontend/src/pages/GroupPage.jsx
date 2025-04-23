@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import CreateEleve from './CreateEleve';
+import "./GroupePage.css";
 
 function GroupPage() {
     const { id } = useParams();
@@ -17,8 +18,8 @@ function GroupPage() {
     };
 
     return (
-        <div>
-            <h1>Élèves du Groupe</h1>
+        <div className="liste-eleves">
+            <h1>Group</h1>
             <CreateEleve groupId={id} fetchEleves={fetchEleves}/>
             <div>
                 {eleves.map((eleve) => (

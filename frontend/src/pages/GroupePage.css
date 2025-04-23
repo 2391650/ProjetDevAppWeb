@@ -1,0 +1,11 @@
+.liste-eleves{
+    background-color: #fcfff0;
+    width: 350px;
+    min-width: 250px;
+    height: 100%;
+    padding: 10px;
+    padding-bottom: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    resize: horizontal;
+}

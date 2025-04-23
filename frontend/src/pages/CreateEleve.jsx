@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import dots from "../assets/images/dots.png";
+import "./CreateEleve.css"
 
 function CreateEleve({ groupId }) {
     const [firstname, setFirstname] = useState("");
@@ -38,8 +39,8 @@ function CreateEleve({ groupId }) {
 
     return (
         <div>
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Create Eleve
+            <button className="ajout-eleves" data-toggle="modal" data-target="#exampleModal">
+                +
             </button>
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog"
                  aria-labelledby="exampleModalLabel"
@@ -74,7 +75,6 @@ function CreateEleve({ groupId }) {
                     </div>
                 </div>
             </div>
-            <h2>Activite</h2>
             <ul>
                 {eleves.map((eleve) => (
                     <li key={eleve.idgroup}>
