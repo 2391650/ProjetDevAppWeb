@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface GroupeRepository extends JpaRepository<Groupe, Long> {
     Groupe findAllByIdgroup(Long idGroupe);
+    Groupe findGroupeByNomGroupe(String nomGroupe);
+    boolean existsByNomGroupe(String nomGroupe);
 }

@@ -26,9 +26,12 @@ public class GroupeController {
     }
 
     @PostMapping("/create")
-    public Groupe createGroup(@RequestBody Groupe groupe) {
+    public boolean createGroup(@RequestBody Groupe groupe) {
+        if (groupeRepository.existsByNomGroupe(groupe.getNomGroupe())){
+            return false;
+        }
         groupeRepository.save(groupe);
-        return groupe;
+        return true;
     }
 
     @DeleteMapping("/delete/{idGroupe}")
