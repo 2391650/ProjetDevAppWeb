@@ -12,7 +12,6 @@ import java.util.List;
 @CrossOrigin
 
 
-
 public class ActiviteController {
 
     @Autowired

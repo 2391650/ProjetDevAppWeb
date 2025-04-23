@@ -31,11 +31,11 @@ public class GroupeController {
         return groupe;
     }
 
-    @DeleteMapping("/delete/{nomGroupe}")
-    public String deleteGroupByName(@PathVariable String nomGroupe) {
-        Groupe groupe = groupeRepository.findByNomGroupe(nomGroupe);
+    @DeleteMapping("/delete/{idGroupe}")
+    public String deleteGroupById(@PathVariable Long idGroupe) {
+        Groupe groupe = groupeRepository.findAllByIdgroup(idGroupe);
         if (groupe == null) {
-            throw new RuntimeException("Not found: " + nomGroupe);
+            throw new RuntimeException("Not found: " + idGroupe);
         }
 
 
@@ -46,17 +46,17 @@ public class GroupeController {
 
         // Supprimer le groupe
         groupeRepository.delete(groupe);
-        return "Group '" + nomGroupe + "' has been deleted successfully.";
+        return "Group '" + idGroupe + "' has been deleted successfully.";
     }
 
-    @PutMapping("/update/{nomGroupe}")
-    public String updateGroupByName(@PathVariable String nomGroupe, @RequestBody String newNomGroupe) {
-        Groupe groupe = groupeRepository.findByNomGroupe(nomGroupe);
+    @PutMapping("/update/{isGroupe}")
+    public String updateGroupById(@PathVariable Long idGroupe, @RequestBody String newIdGroupe) {
+        Groupe groupe = groupeRepository.findAllByIdgroup(idGroupe);
         if (groupe == null) {
-            throw new RuntimeException("Not found: " + nomGroupe);
+            throw new RuntimeException("Not found: " + idGroupe);
         }
-        groupe.setNomGroupe(newNomGroupe);
+        groupe.setNomGroupe(newIdGroupe);
         groupeRepository.save(groupe);
-        return "Group '" + nomGroupe + "' has been updated to '" + newNomGroupe + "' successfully.";
+        return "Group '" + idGroupe + "' has been updated to '" + newIdGroupe + "' successfully.";
     }
 }

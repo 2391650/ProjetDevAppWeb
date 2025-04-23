@@ -93,7 +93,7 @@ function GroupCards() {
                                     </button>
                                     <div className="dropdown-menu">
                                         <a className="dropdown-item" href="#">Edit</a>
-                                        <button className="dropdown-item" onClick={() => deleteGroup(group.nomGroupe)}>Delete</button>
+                                        <button className="dropdown-item" onClick={() => deleteGroup(group.idgroup)}>Delete</button>
                                     </div>
                                 </div>
                             </div>
