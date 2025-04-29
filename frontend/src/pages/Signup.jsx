@@ -24,7 +24,7 @@ function Signup() {
 
     const createProf = async () => {
         try {
-            await axios.post("http://localhost:8181/prof/register", prof);
+            await axios.post("http://localhost:8181/prof/create", prof);
             navigate("/login");
         } catch (error) {
             setError("Erreur lors de la création du compte");
