@@ -12,7 +12,7 @@ public class ProfController {
     @Autowired
     private ProfService profService;
 
-    @PostMapping("/register")
+    @PostMapping("/create")
     public boolean registerProf(@RequestBody Prof prof) {
         return profService.createProf(prof);
     }
@@ -20,5 +20,10 @@ public class ProfController {
     @GetMapping("/login/{firstname}/{passwd}")
     public Prof loginProf(@PathVariable String firstname, @PathVariable String passwd) {
         return profService.findProfByNameAndPassword(firstname, passwd);
+    }
+
+    @GetMapping("/findByFirstname/{firstname}")
+    public Prof findByFirstname(@PathVariable String firstname) {
+        return profService.findByFirstname(firstname);
     }
 }

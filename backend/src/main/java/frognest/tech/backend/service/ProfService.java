@@ -6,18 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class ProfService {
     private final ProfRepository profRepository;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-
-
+    @Autowired
     public ProfService(ProfRepository profRepository) {
         this.profRepository = profRepository;
-
     }
 
     public boolean createProf(Prof prof) {
@@ -35,5 +31,9 @@ public class ProfService {
             return prof;
         }
         return null;
+    }
+
+    public Prof findByFirstname(String firstname) {
+        return profRepository.findByFirstname(firstname);
     }
 }

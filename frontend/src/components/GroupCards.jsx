@@ -18,6 +18,7 @@ function GroupCards() {
         fetchGroups();
     }, []);
 
+
     const fetchGroups = async () => {
         const response = await axios.get('http://localhost:8181/groupe/read');
         setGroups(response.data);
