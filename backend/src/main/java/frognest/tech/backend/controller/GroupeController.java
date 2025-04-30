@@ -18,25 +18,26 @@ import java.util.Optional;
 @CrossOrigin
 public class GroupeController {
 
+
     @Autowired
     private GroupeRepository groupeRepository;
 
     @Autowired
-    private EleveRepository eleveRepository; // Ajout de l'instance du repository
+    private EleveRepository eleveRepository;
 
     @GetMapping("/read")
     public List<Groupe> getAll() {
         return groupeRepository.findAll();
     }
 
-    @PostMapping("/create")
-    public boolean createGroup(@RequestBody Groupe groupe) {
-        if (groupeRepository.existsByNomGroupe(groupe.getNomGroupe())){
-            return false;
-        }
-        groupeRepository.save(groupe);
-        return true;
+    @GetMapping("/read/{profId}")
+    public List<Groupe> getGroupsByProfId(@PathVariable Long profId) {
+        Prof prof = new Prof();
+        prof.setIdprof(profId); // Assurez-vous que l'ID est correct
+        return groupeRepository.findAllByProf(prof); // Assurez-vous que cette méthode existe
     }
+
+
 
     @PostMapping("/create")
     public boolean createGroup(@RequestBody GroupDTO.GroupeDTO dto) {
@@ -44,14 +45,12 @@ public class GroupeController {
             return false;
         }
 
-        Optional<Prof> optionalProf = ProfRepository.findById(dto.getProfId());
-        if (optionalProf.isEmpty()) {
-            throw new RuntimeException("Prof not found with ID: " + dto.getProfId());
-        }
-
-        Prof prof = optionalProf.get();
         Groupe groupe = new Groupe();
         groupe.setNomGroupe(dto.getNomGroupe());
+
+
+        Prof prof = new Prof();
+        prof.setIdprof(dto.getProfId());
         groupe.setProf(prof);
 
         groupeRepository.save(groupe);

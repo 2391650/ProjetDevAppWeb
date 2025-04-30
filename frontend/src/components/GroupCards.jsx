@@ -32,20 +32,20 @@ function GroupCards() {
         setGroups(response.data);
     };
 
- //   const createGroup = async (e) => {
- //       e.preventDefault();
- //       await axios.post('http://localhost:8181/groupe/create', { nomGroupe });
- //       setNomGroupe("");
- //       fetchGroups();
- //   };
+
     const createGroup = async (e) => {
         e.preventDefault();
         const profId = localStorage.getItem("profId");
+
+        if (!profId) {
+            console.error("Prof ID non trouvé dans localStorage");
+            return;
+        }
+
         await axios.post('http://localhost:8181/groupe/create', { nomGroupe, profId });
         setNomGroupe("");
         fetchGroups();
     };
-
 
     const deleteGroup = async (nom) => {
         await axios.delete(`http://localhost:8181/groupe/delete/${nom}`);

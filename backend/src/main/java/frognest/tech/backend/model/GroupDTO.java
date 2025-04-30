@@ -1,7 +1,7 @@
 package frognest.tech.backend.model;
 
 public class GroupDTO {
-    public class GroupeDTO {
+    public static class GroupeDTO { // Ajoutez `static` ici
         private String nomGroupe;
         private Long profId;
 
@@ -22,5 +22,4 @@ public class GroupDTO {
             this.profId = profId;
         }
     }
-
 }
