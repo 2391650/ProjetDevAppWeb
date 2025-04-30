@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 function Login() {
@@ -54,6 +54,9 @@ function Login() {
                 />
             </div>
             <button onClick={handleLogin} className="btn btn-primary">Se connecter</button>
+            <Link to={`/signUp/`}>
+                <button>sign up</button>
+            </Link>
         </div>
     );
 }

@@ -8,7 +8,7 @@ function Sidebar() {
     <div class="navMenu">
       <ul className='text-light'>
         <li class="nav-item">
-          <Link class="nav-link" to="/">
+          <Link class="nav-link" to="/home">
             Home
           </Link>
         </li>

@@ -6,18 +6,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GroupPage from "./pages/GroupPage.jsx";
 import ElevePage from "./pages/ElevePage.jsx";
 import Login from "./pages/Login.jsx";
-import Signup from "./pages/Signup.jsx";
-import Signin from "./pages/Signin.jsx";
-import Sign from "./pages/Sign.jsx";
+import Sign from "./pages/SignUp.jsx";
 
 function App() {
   return <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Sign/>}/>
-        <Route path="/login" element={<Signin/>}/>
+      <Route path="/" element={<Login/>}/>
       <Route path="/home" element={<Home/>}/>
       <Route path="/aboutUs" element={<AboutUs/>}/>
       <Route path="/group/:id" element={<ElevePage/>}/>
+      <Route path="/signUp" element={<Sign/>}/>
     </Routes>
   </BrowserRouter>;
 }

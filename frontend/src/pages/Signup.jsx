@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 function Signup() {
@@ -23,12 +23,8 @@ function Signup() {
     };
 
     const createProf = async () => {
-        try {
-            await axios.post("http://localhost:8181/prof/create", prof);
-            navigate("/login");
-        } catch (error) {
-            setError("Erreur lors de la création du compte");
-        }
+        await axios.post("http://localhost:8181/prof/create", prof);
+        navigate("/");
     };
 
     const handleSubmit = async (e) => {
@@ -84,6 +80,11 @@ function Signup() {
                 </div>
                 <button type="submit" className="btn btn-primary">S'inscrire</button>
             </form>
+            <Link to={`/`}>
+                <button>
+                    login
+                </button>
+            </Link>
         </div>
     );
 }
