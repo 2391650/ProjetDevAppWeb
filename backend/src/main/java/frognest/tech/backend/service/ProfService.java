@@ -32,6 +32,9 @@ public class ProfService {
         }
         return null;
     }
+    public Prof findProfbyId(Long idprof) {
+        return profRepository.findByIdprof(idprof);
+    }
 
     public Prof findByFirstname(String firstname) {
         return profRepository.findByFirstname(firstname);

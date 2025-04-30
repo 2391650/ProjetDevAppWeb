@@ -7,29 +7,45 @@ import red from "../assets/images/redWaves.png";
 import purple from "../assets/images/purpleWaves.png";
 import yellow from "../assets/images/yellowWaves.png";
 import dots from "../assets/images/dots.png"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import './GroupCards.css';
 
 function GroupCards() {
     const [groups, setGroups] = useState([]);
     const [nomGroupe, setNomGroupe] = useState("");
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        fetchGroups();
+        const localId = localStorage.getItem("profId");
+        if (!localId) {
+            navigate("/login"); // si pas connecté reste bloqué sur la page login
+        } else {
+            fetchGroups();
+        }
     }, []);
 
 
     const fetchGroups = async () => {
-        const response = await axios.get('http://localhost:8181/groupe/read');
+        const localId = localStorage.getItem("profId");
+        const response = await axios.get(`http://localhost:8181/groupe/read/${localId}`); // Inclure l'ID du professeur
         setGroups(response.data);
     };
 
+ //   const createGroup = async (e) => {
+ //       e.preventDefault();
+ //       await axios.post('http://localhost:8181/groupe/create', { nomGroupe });
+ //       setNomGroupe("");
+ //       fetchGroups();
+ //   };
     const createGroup = async (e) => {
         e.preventDefault();
-        await axios.post('http://localhost:8181/groupe/create', { nomGroupe });
+        const profId = localStorage.getItem("profId");
+        await axios.post('http://localhost:8181/groupe/create', { nomGroupe, profId });
         setNomGroupe("");
         fetchGroups();
     };
+
 
     const deleteGroup = async (nom) => {
         await axios.delete(`http://localhost:8181/groupe/delete/${nom}`);
