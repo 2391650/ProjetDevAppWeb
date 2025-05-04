@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {Link, useNavigate} from "react-router-dom";
+import Navbar from '../components/Navbar';
 
 
 function Signup() {
@@ -38,54 +39,55 @@ function Signup() {
     };
 
     return (
-        <div className="container inscription mt-5">
-            <h2>Inscription Professeur</h2>
-            {error && <div className="alert alert-danger">{error}</div>}
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="firstname" className="form-label">Nom d'utilisateur</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="firstname"
-                        id="firstname"
-                        placeholder="Nom d'utilisateur"
-                        required
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="lastname" className="form-label">Nom</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="lastname"
-                        id="lastname"
-                        placeholder="Nom"
-                        required
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="passwd" className="form-label">Mot de passe</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        name="passwd"
-                        id="passwd"
-                        placeholder="Mot de passe"
-                        required
-                        onChange={handleChange}
-                    />
-                </div>
-                <button type="submit" className="btn btn-primary">S'inscrire</button>
-            </form>
-            <Link to={`/`}>
-                <button>
-                    login
-                </button>
-            </Link>
+        <div className="background">
+            <Navbar/>
+            <div className="container login-form mt-5">
+                <h2 className="title">Sign up Page</h2>
+                {error && <div className="alert alert-danger">{error}</div>}
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label htmlFor="firstname" className="form-label">Username</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="firstname"
+                            id="firstname"
+                            required
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="lastname" className="form-label">Full Name</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="lastname"
+                            id="lastname"
+                            required
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="passwd" className="form-label">Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            name="passwd"
+                            id="passwd"
+                            required
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Sign up</button>
+                </form>
+                <Link to={`/`}>
+                    <button className="btn btn-outline-light">
+                        Log in
+                    </button>
+                </Link>
+            </div>
         </div>
+
     );
 }
 

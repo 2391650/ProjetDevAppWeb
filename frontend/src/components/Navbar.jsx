@@ -1,7 +1,6 @@
 import React from "react";
 import "./Navbar.css";
 import logo from "../assets/images/HopQuest_Logo.png";
-import pfp from "../assets/images/pfp.png";
 
 function Navbar() {
   return (
@@ -16,12 +15,6 @@ function Navbar() {
         >
           HopQuest
         </h1>
-        <div class="d-flex" id="navbarText">
-          <span class="navbar-text text-light">User</span>
-          <a class="pfp-image" href="#">
-            <img src={pfp} class="img-fluid logo-image" href="#" />
-          </a>
-        </div>
       </div>
     </nav>
   );

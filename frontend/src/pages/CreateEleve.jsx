@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import dots from "../assets/images/dots.png";
 import "./CreateEleve.css"
+import {Link} from "react-router-dom";
 
 function CreateEleve({ groupId }) {
     const [firstname, setFirstname] = useState("");
@@ -48,7 +49,7 @@ function CreateEleve({ groupId }) {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Create Eleve</h5>
+                            <h5 className="modal-title" id="exampleModalLabel">Create Student</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -59,17 +60,17 @@ function CreateEleve({ groupId }) {
                                     type="text"
                                     value={firstname}
                                     onChange={(e) => setFirstname(e.target.value)}
-                                    placeholder="Prénom"
+                                    placeholder="first name"
                                     required
                                 />
                                 <input
                                     type="text"
                                     value={lastname}
                                     onChange={(e) => setLastname(e.target.value)}
-                                    placeholder="Nom"
+                                    placeholder="Last name"
                                     required
                                 />
-                                <button type="submit">Create Élève</button>
+                                <button type="submit">Create Student</button>
                             </form>
                         </div>
                     </div>
@@ -86,7 +87,9 @@ function CreateEleve({ groupId }) {
                                 <img src={dots} style={{height: "30px"}}/>
                             </button>
                             <div className="dropdown-menu">
-                                <a className="dropdown-item" href="#">View Student</a>
+                                <a className="dropdown-item" href="#">
+                                    View Student
+                                </a>
                                 <button className="dropdown-item"
                                         onClick={() => deleteEleve(eleve.ideleve)}>Delete
                                 </button>

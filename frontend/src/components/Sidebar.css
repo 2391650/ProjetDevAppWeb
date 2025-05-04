@@ -13,3 +13,8 @@ ul li {
 .nav-link:hover{
     opacity: 0.6;
 }
+
+.sign-out{
+    margin-top: 70vh;
+    color: lightskyblue;
+}

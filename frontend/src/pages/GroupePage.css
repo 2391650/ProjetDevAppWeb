@@ -1,5 +1,5 @@
 .liste-eleves{
-    background-color: #fcfff0;
+    background-color: #eaf8e5;
     width: 350px;
     min-width: 250px;
     height: 100%;
@@ -7,5 +7,4 @@
     padding-bottom: 100px;
     overflow-x: hidden;
     overflow-y: auto;
-    resize: horizontal;
 }

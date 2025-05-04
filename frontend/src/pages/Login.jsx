@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Login.css"
+import Navbar from '../components/Navbar';
 import {Link, useNavigate} from "react-router-dom";
 
 
@@ -26,38 +28,40 @@ function Login() {
     };
 
     return (
-        <div className="container mt-5">
-            <h2>Page de Connexion Professeur</h2>
-            {error && <div className="alert alert-danger">{error}</div>}
-            <div className="mb-3">
-                <label htmlFor="firstname" className="form-label">Nom d'utilisateur</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    id="firstname"
-                    placeholder="Nom d'utilisateur"
-                    value={firstname}
-                    onChange={(e) => setFirstname(e.target.value)}
-                    required
-                />
+        <div className="background">
+            <Navbar/>
+            <div className="container mt-5 login-form">
+                <h2 className="title">Login Page</h2>
+                {error && <div className="alert alert-danger">{error}</div>}
+                <div>
+                    <label htmlFor="firstname" className="form-label">Username</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="firstname"
+                        value={firstname}
+                        onChange={(e) => setFirstname(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <button onClick={handleLogin} className="btn btn-primary">Log in</button>
+                <Link to={`/signUp/`}>
+                    <button className="btn btn-outline-light">Sign up</button>
+                </Link>
             </div>
-            <div className="mb-3">
-                <label htmlFor="password" className="form-label">Mot de passe</label>
-                <input
-                    type="password"
-                    className="form-control"
-                    id="password"
-                    placeholder="Mot de passe"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </div>
-            <button onClick={handleLogin} className="btn btn-primary">Se connecter</button>
-            <Link to={`/signUp/`}>
-                <button>sign up</button>
-            </Link>
         </div>
+
     );
 }
 

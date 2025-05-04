@@ -7,14 +7,19 @@ function Sidebar() {
   return (
     <div class="navMenu">
       <ul className='text-light'>
-        <li class="nav-item">
+        <li className="nav-item">
           <Link class="nav-link" to="/home">
             Home
           </Link>
         </li>
-        <li class="nav-item">
-          <Link class="nav-link" to="/AboutUs" >
+        <li className="nav-item">
+          <Link class="nav-link" to="/AboutUs">
             About Us
+          </Link>
+        </li>
+        <li className="nav-item sign-out">
+          <Link class="nav-link" to="/">
+            Sign Out
           </Link>
         </li>
       </ul>

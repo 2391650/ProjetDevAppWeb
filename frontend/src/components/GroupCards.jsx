@@ -55,8 +55,8 @@ function GroupCards() {
     return (
         <div>
 
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Create Group
+            <button className="ajout-group" data-toggle="modal" data-target="#exampleModal">
+                +
             </button>
 
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog"
@@ -109,27 +109,23 @@ function GroupCards() {
                                         <img src={dots} style={{height:"30px"}}/>
                                     </button>
                                     <div className="dropdown-menu">
-                                        <a className="dropdown-item" href="#">Edit</a>
                                         <button className="dropdown-item" onClick={() => deleteGroup(group.idgroup)}>Delete</button>
                                     </div>
                                 </div>
                             </div>
-                                <div className="card-body bg-dark">
-                                    <p className="text-light"> Students</p>
-                                    <Link to={`/group/${group.idgroup}`}>
-                                        <button className="groupBtn">
-                                            See Group
-                                        </button>
-                                    </Link>
-
-                                </div>
+                            <div className="card-body bg-dark">
+                                <p className="text-light"> Students</p>
+                                <Link to={`/group/${group.idgroup}`}>
+                                    <button className="groupBtn">
+                                        See Group
+                                    </button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                        ))}
-
-                    </div>
-                    </div>
-                    );
-                }
-
-                export default GroupCards;
+                ))}
+            </div>
+        </div>
+    );
+}
+export default GroupCards;
