@@ -5,7 +5,6 @@ public class GroupDTO {
         private String nomGroupe;
         private Long profId;
 
-        // Getters et setters
         public String getNomGroupe() {
             return nomGroupe;
         }

@@ -7,22 +7,16 @@ import red from "../assets/images/redWaves.png";
 import purple from "../assets/images/purpleWaves.png";
 import yellow from "../assets/images/yellowWaves.png";
 import dots from "../assets/images/dots.png"
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import './GroupCards.css';
 
 function GroupCards() {
     const [groups, setGroups] = useState([]);
     const [nomGroupe, setNomGroupe] = useState("");
 
-    const navigate = useNavigate();
 
     useEffect(() => {
-        const localId = localStorage.getItem("profId");
-        if (!localId) {
-            navigate("/login"); // si pas connecté reste bloqué sur la page login
-        } else {
             fetchGroups();
-        }
     }, []);
 
 
@@ -55,11 +49,11 @@ function GroupCards() {
     return (
         <div>
 
-            <button className="ajout-group" data-toggle="modal" data-target="#exampleModal">
+            <button className="ajout-group" data-toggle="modal" data-target="#groupModal">
                 +
             </button>
 
-            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog"
+            <div className="modal fade" id="groupModal" tabIndex="-1" role="dialog"
                  aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
                 <div className="modal-dialog" role="document">

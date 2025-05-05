@@ -38,10 +38,10 @@ function CreateEleve({ groupId }) {
 
     return (
         <div>
-            <button className="ajout-eleves" data-toggle="modal" data-target="#exampleModal">
+            <button className="ajout-eleves" data-toggle="modal" data-target="#eleveModal">
                 +
             </button>
-            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog"
+            <div className="modal fade" id="eleveModal" tabIndex="-1" role="dialog"
                  aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
                 <div className="modal-dialog" role="document">

@@ -12,18 +12,12 @@ function Login() {
     const [error, setError] = useState("");
 
     const handleLogin = async () => {
-        try {
-            const response = await axios.get(`http://localhost:8181/prof/login/${firstname}/${password}`);
-            if (response.data) {
-                localStorage.setItem("profId", response.data.idprof);
-                navigate("/home");
-            } else {
-                setError("Identifiants invalides");
-            }
-
-            // eslint-disable-next-line no-unused-vars
-        } catch (error) {
-            setError("Erreur lors de la connexion");
+        const response = await axios.get(`http://localhost:8181/prof/login/${firstname}/${password}`);
+        if (response.data) {
+            localStorage.setItem("profId", response.data.idprof);
+            navigate("/home");
+        } else {
+            setError("Identifiants invalides");
         }
     };
 

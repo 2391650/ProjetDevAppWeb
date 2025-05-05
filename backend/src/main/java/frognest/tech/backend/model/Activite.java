@@ -12,8 +12,6 @@ public class Activite {
     private Long idactivity;
     private Date date;
 
-
-
       @ManyToOne
       Categorie categorie;
       @ManyToOne

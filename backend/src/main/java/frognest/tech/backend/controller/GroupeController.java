@@ -18,7 +18,6 @@ import java.util.Optional;
 @CrossOrigin
 public class GroupeController {
 
-
     @Autowired
     private GroupeRepository groupeRepository;
 
@@ -76,14 +75,4 @@ public class GroupeController {
         return "Group '" + idGroupe + "' has been deleted successfully.";
     }
 
-    @PutMapping("/update/{isGroupe}")
-    public String updateGroupById(@PathVariable Long idGroupe, @RequestBody String newIdGroupe) {
-        Groupe groupe = groupeRepository.findAllByIdgroup(idGroupe);
-        if (groupe == null) {
-            throw new RuntimeException("Not found: " + idGroupe);
-        }
-        groupe.setNomGroupe(newIdGroupe);
-        groupeRepository.save(groupe);
-        return "Group '" + idGroupe + "' has been updated to '" + newIdGroupe + "' successfully.";
-    }
 }

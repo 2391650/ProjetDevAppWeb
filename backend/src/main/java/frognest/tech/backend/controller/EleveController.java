@@ -14,8 +14,6 @@ import java.util.List;
 
 public class EleveController {
 
-
-
     @GetMapping("/read/{groupId}")
     public List<Eleve> getEleveByIdGroup( @PathVariable Long groupId) {
         return eleveRepository.findByGroupe_Idgroup(groupId);
@@ -30,7 +28,6 @@ public class EleveController {
         return eleve;
     }
 
-
     @DeleteMapping("/delete/{ideleve}")
     public String deleteEleveById(@PathVariable Long ideleve) {
         if(!eleveRepository.existsById(ideleve)){
@@ -38,26 +35,5 @@ public class EleveController {
         }
         eleveRepository.deleteById(ideleve);
         return  "Customer with id "+ideleve+" has been deleted success.";
-    }
-
-
-
-    @PutMapping("/update/{firstname}")
-    public String updateEleve(@PathVariable String firstname, @RequestBody Eleve updateEleve) {
-        Eleve eleve = eleveRepository.findByFirstname(firstname);
-        if (eleve == null) {
-            throw new RuntimeException("Not found: " + firstname);
-        }
-
-
-        if (updateEleve.getFirstname() != null) {
-            eleve.setFirstname(updateEleve.getFirstname());
-        }
-        if (updateEleve.getLastname() != null) {
-            eleve.setLastname(updateEleve.getLastname());
-        }
-
-        eleveRepository.save(eleve);
-        return "Eleve '" + firstname + "' has been updated successfully.";
     }
 }

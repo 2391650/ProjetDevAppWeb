@@ -13,7 +13,6 @@ public class Groupe {
     @ManyToOne
     Prof prof;
 
-
     public Long getIdgroup() {
 
         return idgroup;

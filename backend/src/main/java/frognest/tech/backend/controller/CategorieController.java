@@ -29,8 +29,6 @@ public class CategorieController {
         return categorie;
     }
 
-
-
     @DeleteMapping("/delete/{nomCategorie}")
     public String deleteCategoryByName(@PathVariable String nomCategorie) {
         Categorie categorie = categorieRepository.findByNomcategorie(nomCategorie);
@@ -41,16 +39,4 @@ public class CategorieController {
         return "Category '" + nomCategorie + "' has been deleted successfully.";
     }
 
-
-
-    @PutMapping("/update/{nomCategorie}")
-    public String updateCategoryByName(@PathVariable String nomCategorie, @RequestBody String newNomCategorie) {
-        Categorie categorie = categorieRepository.findByNomcategorie(nomCategorie);
-        if (categorie == null) {
-            throw new RuntimeException("Not found: " + nomCategorie);
-        }
-        categorie.setNomcategorie(newNomCategorie);
-        categorieRepository.save(categorie);
-        return "Category '" + nomCategorie + "' has been updated to '" + newNomCategorie + "' successfully.";
-    }
 }
