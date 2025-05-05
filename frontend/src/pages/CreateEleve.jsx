@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import dots from "../assets/images/dots.png";
 import "./CreateEleve.css"
-import {Link} from "react-router-dom";
 
 function CreateEleve({ groupId }) {
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
     const [eleves, setEleves] = useState([]);
-    //a voir comment juste avoir un objet avec tt les attributs
 
     useEffect(() => {
         fetchEleves();
