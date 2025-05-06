@@ -7,17 +7,17 @@ import {Link, useNavigate} from "react-router-dom";
 
 function Login() {
     const navigate = useNavigate();
-    const [firstname, setFirstname] = useState("");
+    const [fullname, setFullname] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
     const handleLogin = async () => {
-        const response = await axios.get(`http://localhost:8181/prof/login/${firstname}/${password}`);
+        const response = await axios.get(`http://localhost:8181/prof/login/${fullname}/${password}`);
         if (response.data) {
             localStorage.setItem("profId", response.data.idprof);
             navigate("/home");
         } else {
-            setError("Identifiants invalides");
+            setError("Invalid credentials.");
         }
     };
 
@@ -28,13 +28,13 @@ function Login() {
                 <h2 className="title">Login Page</h2>
                 {error && <div className="alert alert-danger">{error}</div>}
                 <div>
-                    <label htmlFor="firstname" className="form-label">Username</label>
+                    <label htmlFor="fullname" className="form-label">Username</label>
                     <input
                         type="text"
                         className="form-control"
-                        id="firstname"
-                        value={firstname}
-                        onChange={(e) => setFirstname(e.target.value)}
+                        id="fullname"
+                        value={fullname}
+                        onChange={(e) => setFullname(e.target.value)}
                         required
                     />
                 </div>
@@ -49,7 +49,7 @@ function Login() {
                         required
                     />
                 </div>
-                <button onClick={handleLogin} className="btn btn-primary">Log in</button>
+                <button onClick={handleLogin} id="loginBtn" className="btn btn-primary">Log in</button>
                 <Link to={`/signUp/`}>
                     <button className="btn btn-outline-light">Sign up</button>
                 </Link>

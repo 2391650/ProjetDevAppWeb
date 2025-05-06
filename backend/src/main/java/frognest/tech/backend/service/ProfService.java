@@ -17,7 +17,7 @@ public class ProfService {
     }
 
     public boolean createProf(Prof prof) {
-        if (profRepository.findByFirstname(prof.getFirstname()) == null) {
+        if (profRepository.findByFullname(prof.getFirstname()) == null) {
             prof.setPasswd(passwordEncoder.encode(prof.getPasswd()));
             profRepository.save(prof);
             return true;
@@ -26,7 +26,7 @@ public class ProfService {
     }
 
     public Prof findProfByNameAndPassword(String firstname, String passwd) {
-        Prof prof = profRepository.findByFirstname(firstname);
+        Prof prof = profRepository.findByFullname(firstname);
         if (prof != null && passwordEncoder.matches(passwd, prof.getPasswd())) {
             return prof;
         }
@@ -36,7 +36,7 @@ public class ProfService {
         return profRepository.findByIdprof(idprof);
     }
 
-    public Prof findByFirstname(String firstname) {
-        return profRepository.findByFirstname(firstname);
+    public Prof findByFirstname(String fullname) {
+        return profRepository.findByFullname(fullname);
     }
 }

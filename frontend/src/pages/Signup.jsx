@@ -6,8 +6,7 @@ import Navbar from '../components/Navbar';
 
 function Signup() {
     const [prof, setProf] = useState({
-        firstname: "",
-        lastname: "",
+        fullname: "",
         passwd: "",
     });
 
@@ -18,8 +17,8 @@ function Signup() {
         setProf({ ...prof, [e.target.name]: e.target.value });
     };
 
-    const existDeja = async (firstname) => {
-        const result = await axios.get(`http://localhost:8181/prof/findByFirstname/${firstname}`);
+    const existDeja = async (fullname) => {
+        const result = await axios.get(`http://localhost:8181/prof/findByFullname/${fullname}`);
         return !result.data;
     };
 
@@ -30,7 +29,7 @@ function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const isAvailable = await existDeja(prof.firstname);
+        const isAvailable = await existDeja(prof.fullname);
         if (isAvailable) {
             createProf();
         } else {
@@ -46,23 +45,23 @@ function Signup() {
                 {error && <div className="alert alert-danger">{error}</div>}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
-                        <label htmlFor="firstname" className="form-label">Username</label>
+                        <label htmlFor="username" className="form-label">Username</label>
                         <input
                             type="text"
                             className="form-control"
-                            name="firstname"
-                            id="firstname"
+                            name="username"
+                            id="username"
                             required
                             onChange={handleChange}
                         />
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="lastname" className="form-label">Full Name</label>
+                        <label htmlFor="fullname" className="form-label">Full Name</label>
                         <input
                             type="text"
                             className="form-control"
-                            name="lastname"
-                            id="lastname"
+                            name="fullname"
+                            id="fullname"
                             required
                             onChange={handleChange}
                         />
@@ -78,7 +77,7 @@ function Signup() {
                             onChange={handleChange}
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary">Sign up</button>
+                    <button type="submit" id="signupBtn" className="btn btn-primary">Sign up</button>
                 </form>
                 <Link to={`/`}>
                     <button className="btn btn-outline-light">

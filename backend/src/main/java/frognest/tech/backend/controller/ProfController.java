@@ -17,13 +17,13 @@ public class ProfController {
         return profService.createProf(prof);
     }
 
-    @GetMapping("/login/{firstname}/{passwd}")
-    public Prof loginProf(@PathVariable String firstname, @PathVariable String passwd) {
-        return profService.findProfByNameAndPassword(firstname, passwd);
+    @GetMapping("/login/{fullname}/{passwd}")
+    public Prof loginProf(@PathVariable String fullname, @PathVariable String passwd) {
+        return profService.findProfByNameAndPassword(fullname, passwd);
     }
 
-    @GetMapping("/findByFirstname/{firstname}")
-    public Prof findByFirstname(@PathVariable String firstname) {
-        return profService.findByFirstname(firstname);
+    @GetMapping("/findByFullname/{fullname}")
+    public Prof findByFullname(@PathVariable String fullname) {
+        return profService.findByFirstname(fullname);
     }
 }
