@@ -1,9 +1,0 @@
-.content {
-    position: relative; /* Garder pour pouvoir surligner le text */
-    background-color: #464646;
-    padding: 10vh;
-    color: white;
-    top: 30px;
-    min-height: 350px;
-    height: auto;
-}

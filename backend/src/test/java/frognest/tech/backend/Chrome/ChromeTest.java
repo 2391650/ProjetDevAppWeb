@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
+// @author Alex
 @SpringBootTest
 public class ChromeTest {
     WebDriver driver = new ChromeDriver();

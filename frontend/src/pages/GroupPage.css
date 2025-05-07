@@ -1,5 +1,4 @@
 .liste-eleves{
-    background-color: #eaf8e5;
     width: 350px;
     min-width: 250px;
     height: 100%;
@@ -8,6 +7,8 @@
     overflow-x: hidden;
     overflow-y: auto;
     position: absolute;
+    /*background-color: rgba(0,0,0, 0.1);*/
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 
@@ -16,9 +17,16 @@
     font-weight: bold;
     margin-bottom: 20px;
 }
+
+.category-form {
+    padding: 20px;
+}
+
+
 .activity{
     position: relative;
     margin-left: 350px;
+    display: flex;
 }
 
 .liste-activity{

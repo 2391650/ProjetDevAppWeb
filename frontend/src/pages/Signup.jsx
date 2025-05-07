@@ -24,7 +24,7 @@ function Signup() {
 
     const createProf = async () => {
         await axios.post("http://localhost:8181/prof/create", prof);
-        navigate("/");
+        navigate("/login");
     };
 
     const handleSubmit = async (e) => {
@@ -33,7 +33,7 @@ function Signup() {
         if (isAvailable) {
             createProf();
         } else {
-            setError("Nom d'utilisateur déjà pris");
+            setError("Username is in use.");
         }
     };
 
@@ -68,8 +68,9 @@ function Signup() {
                     </div>
                     <button type="submit" id="signupBtn" className="btn btn-primary">Sign up</button>
                 </form>
-                <Link to={`/`}>
-                    <button className="btn btn-outline-light">
+                <p className="or">Already have an account?</p>
+                <Link to={`/login`}>
+                    <button className="btn text-info login-option">
                         Log in
                     </button>
                 </Link>

@@ -106,7 +106,7 @@ function GroupCards() {
                             <div className="card-body bg-dark">
                                 <p className="text-light"> Students</p>
                                 <Link to={`/group/${group.idgroup}`}>
-                                    <button className="groupBtn">
+                                    <button className="groupBtn btn text-info">
                                         See Group
                                     </button>
                                 </Link>

@@ -14,6 +14,10 @@
     position: absolute;
 }
 
+.groupBtn:Hover{
+    opacity: 0.6;
+}
+
 .ajout-group{
     background: none;
     border: none;

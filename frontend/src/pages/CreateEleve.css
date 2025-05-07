@@ -5,7 +5,9 @@
     font: inherit;
     cursor: pointer;
     outline: inherit;
-    margin-top: -10px;
+    margin-left: 270px;
+    margin-top: -73px;
     font-size: 50px;
     color: gray;
+    position: absolute;
 }

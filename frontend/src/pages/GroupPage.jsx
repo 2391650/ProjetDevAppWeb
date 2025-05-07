@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import CreateEleve from './CreateEleve';
-import "./GroupePage.css";
+import "./GroupPage.css";
 import Navbar from "../components/Navbar.jsx";
 import Sidebar from "../components/Sidebar.jsx";
 
@@ -90,7 +90,7 @@ function GroupPage() {
                         </div>
 
                         <div className="activity">
-                            <form onSubmit={createCategorie} className="mb-4">
+                            <form onSubmit={createCategorie} className="mb-4 category-form">
                                 <input
                                     type="text"
                                     value={nomCategorie}

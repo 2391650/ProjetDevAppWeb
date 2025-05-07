@@ -15,7 +15,7 @@ function Login() {
         const response = await axios.get(`http://localhost:8181/prof/login/${username}/${password}`);
         if (response.data) {
             localStorage.setItem("profId", response.data.idprof);
-            navigate("/home");
+            navigate("/groups");
         } else {
             setError("Invalid credentials.");
         }
@@ -27,7 +27,7 @@ function Login() {
             <div className="container mt-5 login-form">
                 <h2 className="title">Login Page</h2>
                 {error && <div className="alert alert-danger">{error}</div>}
-                <div>
+                <div className="mb-3">
                     <label htmlFor="username" className="form-label">Username</label>
                     <input
                         type="text"
@@ -50,8 +50,9 @@ function Login() {
                     />
                 </div>
                 <button onClick={handleLogin} id="loginBtn" className="btn btn-primary">Log in</button>
-                <Link to={`/signUp/`}>
-                    <button className="btn btn-outline-light">Sign up</button>
+                <p className="or">Don't have an account?</p>
+                <Link to={`/signUp`}>
+                    <button className="btn text-info signup-option">Sign up</button>
                 </Link>
             </div>
         </div>

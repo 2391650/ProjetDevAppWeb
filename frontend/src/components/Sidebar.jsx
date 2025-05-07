@@ -5,20 +5,15 @@ import { Link } from 'react-router-dom';
 function Sidebar() {
 
   return (
-    <div class="navMenu">
+    <div className="navMenu">
       <ul className='text-light'>
         <li className="nav-item">
-          <Link class="nav-link" to="/home">
-            Home
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link class="nav-link" to="/AboutUs">
-            About Us
+          <Link class="nav-link" to="/groups">
+            Groups
           </Link>
         </li>
         <li className="nav-item sign-out">
-          <Link class="nav-link" to="/">
+          <Link class="nav-link" to="/login">
             Sign Out
           </Link>
         </li>

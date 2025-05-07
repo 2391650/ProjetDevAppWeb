@@ -2,10 +2,10 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import GroupCards from "../components/GroupCards.jsx";
-import './Home.css'
+import './Groups.css'
 import {useNavigate} from "react-router-dom";
 
-function Home() {
+function Groups() {
     const navigate = useNavigate();
 
     // vérifie si le prof est connecté ou pas
@@ -27,4 +27,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Groups;
