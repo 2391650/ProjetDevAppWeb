@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import dots from "../assets/images/dots.png";
 import "./CreateEleve.css"
+import {Link} from "react-router-dom";
 
 function CreateEleve({ groupId }) {
     const [firstname, setFirstname] = useState("");
@@ -85,9 +86,9 @@ function CreateEleve({ groupId }) {
                                 <img src={dots} style={{height: "30px"}}/>
                             </button>
                             <div className="dropdown-menu">
-                                <a className="dropdown-item" href="#">
+                                <Link to={`/eleve/${eleve.ideleve}`} className="btn btn-sm btn-info">
                                     View Student
-                                </a>
+                                </Link>
                                 <button className="dropdown-item"
                                         onClick={() => deleteEleve(eleve.ideleve)}>Delete
                                 </button>

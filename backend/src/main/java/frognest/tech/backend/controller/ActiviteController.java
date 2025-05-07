@@ -21,6 +21,12 @@ public class ActiviteController {
     public List<Activite> getAll() {
         return activiteRepository.findAll();
     }
+    @GetMapping("/eleve/{ideleve}")
+    public List<Activite> getActivitesByEleve(@PathVariable Long ideleve) {
+        return activiteRepository.findByEleve_Ideleve(ideleve);
+    }
+
+
     @PostMapping("/historique")
     public Activite createActivity(@RequestBody Activite activite) {
         activiteRepository.save(activite);
