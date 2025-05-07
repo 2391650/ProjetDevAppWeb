@@ -23,29 +23,13 @@ public class ChromeTest {
         driver.get("http://localhost:5173/signUp");
 
         WebElement usernameInput = driver.findElement(By.id("username"));
-        WebElement fullnameInput = driver.findElement(By.id("fullname"));
         WebElement passwdInput = driver.findElement(By.id("passwd"));
         WebElement signupBtn = driver.findElement(By.id("signupBtn"));
 
         usernameInput.sendKeys("alexandros");
-        fullnameInput.sendKeys("alex");
         passwdInput.sendKeys("123");
         signupBtn.click();
 
-//        String loginOk = "http://localhost:5173/";
-//        assertEquals(driver.getCurrentUrl(), loginOk);
     }
 
-//    @Test
-//    public void Login() {
-//        driver.get("http://localhost:5173/");
-//
-//        WebElement fullnameInput = driver.findElement(By.id("fullname"));
-//        WebElement passwdInput = driver.findElement(By.id("password"));
-//        WebElement loginBtn = driver.findElement(By.id("loginBtn"));
-//
-//        fullnameInput.sendKeys("alex");
-//        passwdInput.sendKeys("123");
-//        loginBtn.click();
-//    }
 }

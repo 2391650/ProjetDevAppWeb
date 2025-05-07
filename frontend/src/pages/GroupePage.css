@@ -36,10 +36,6 @@
     font-size: 50px;
     color: gray;
 }
-.ajout-eleves:hover {
-    background-color: #218838;
-    cursor: pointer;
-}
 
 form input[type="text"] {
     width: 100%;

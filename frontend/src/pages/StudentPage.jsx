@@ -4,6 +4,7 @@ import axios from 'axios';
 import Navbar from "../components/Navbar.jsx";
 import Sidebar from "../components/Sidebar.jsx";
 
+// @author Tarek
 function StudentPage() {
     const { ideleve } = useParams();
     const [activites, setActivites] = useState([]);

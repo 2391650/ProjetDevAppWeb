@@ -10,22 +10,20 @@ import dots from "../assets/images/dots.png"
 import {Link} from "react-router-dom";
 import './GroupCards.css';
 
+// @author Tarek
 function GroupCards() {
     const [groups, setGroups] = useState([]);
     const [nomGroupe, setNomGroupe] = useState("");
 
-
     useEffect(() => {
             fetchGroups();
     }, []);
-
 
     const fetchGroups = async () => {
         const localId = localStorage.getItem("profId");
         const response = await axios.get(`http://localhost:8181/groupe/read/${localId}`); // Inclure l'ID du professeur
         setGroups(response.data);
     };
-
 
     const createGroup = async (e) => {
         e.preventDefault();
@@ -36,6 +34,7 @@ function GroupCards() {
             return;
         }
 
+// @author Alex, Tarek
         await axios.post('http://localhost:8181/groupe/create', { nomGroupe, profId });
         setNomGroupe("");
         fetchGroups();
@@ -48,11 +47,9 @@ function GroupCards() {
 
     return (
         <div>
-
             <button className="ajout-group" data-toggle="modal" data-target="#groupModal">
                 +
             </button>
-
             <div className="modal fade" id="groupModal" tabIndex="-1" role="dialog"
                  aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
@@ -80,7 +77,6 @@ function GroupCards() {
                 </div>
             </div>
             <div className="row" style={{marginTop: "20px"}}>
-
                 {groups.map((group, index) => (
                     <div className="col-lg-4 col-md-6 col-sm-12" key={index} >
                         <div className="card" style={{marginTop: "20px", marginLeft:"100px", maxWidth:"450px"}}>

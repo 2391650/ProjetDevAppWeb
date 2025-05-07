@@ -59,7 +59,7 @@ function CreateEleve({ groupId }) {
                                     type="text"
                                     value={firstname}
                                     onChange={(e) => setFirstname(e.target.value)}
-                                    placeholder="first name"
+                                    placeholder="First name"
                                     required
                                 />
                                 <input
@@ -86,7 +86,7 @@ function CreateEleve({ groupId }) {
                                 <img src={dots} style={{height: "30px"}}/>
                             </button>
                             <div className="dropdown-menu">
-                                <Link to={`/eleve/${eleve.ideleve}`} className="btn btn-sm btn-info">
+                                <Link to={`/eleve/${eleve.ideleve}`} className="btn ">
                                     View Student
                                 </Link>
                                 <button className="dropdown-item"

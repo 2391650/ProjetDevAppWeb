@@ -4,15 +4,15 @@ import "./Login.css"
 import Navbar from '../components/Navbar';
 import {Link, useNavigate} from "react-router-dom";
 
-
+// @author Tarek
 function Login() {
     const navigate = useNavigate();
-    const [fullname, setFullname] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
     const handleLogin = async () => {
-        const response = await axios.get(`http://localhost:8181/prof/login/${fullname}/${password}`);
+        const response = await axios.get(`http://localhost:8181/prof/login/${username}/${password}`);
         if (response.data) {
             localStorage.setItem("profId", response.data.idprof);
             navigate("/home");
@@ -28,13 +28,13 @@ function Login() {
                 <h2 className="title">Login Page</h2>
                 {error && <div className="alert alert-danger">{error}</div>}
                 <div>
-                    <label htmlFor="fullname" className="form-label">Username</label>
+                    <label htmlFor="username" className="form-label">Username</label>
                     <input
                         type="text"
                         className="form-control"
-                        id="fullname"
-                        value={fullname}
-                        onChange={(e) => setFullname(e.target.value)}
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                         required
                     />
                 </div>

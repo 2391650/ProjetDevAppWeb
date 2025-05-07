@@ -11,7 +11,7 @@ public class Prof {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long idprof;
-    private String fullname;
+    private String username;
     private String passwd;
 
 
@@ -23,12 +23,12 @@ public class Prof {
         this.idprof = idprof;
     }
 
-    public String getFirstname() {
-        return fullname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPasswd() {

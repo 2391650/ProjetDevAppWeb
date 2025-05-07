@@ -3,10 +3,10 @@ import axios from "axios";
 import {Link, useNavigate} from "react-router-dom";
 import Navbar from '../components/Navbar';
 
-
+// @author Tarek
 function Signup() {
     const [prof, setProf] = useState({
-        fullname: "",
+        username: "",
         passwd: "",
     });
 
@@ -17,8 +17,8 @@ function Signup() {
         setProf({ ...prof, [e.target.name]: e.target.value });
     };
 
-    const existDeja = async (fullname) => {
-        const result = await axios.get(`http://localhost:8181/prof/findByFullname/${fullname}`);
+    const existDeja = async (username) => {
+        const result = await axios.get(`http://localhost:8181/prof/findByUsername/${username}`);
         return !result.data;
     };
 
@@ -29,7 +29,7 @@ function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const isAvailable = await existDeja(prof.fullname);
+        const isAvailable = await existDeja(prof.username);
         if (isAvailable) {
             createProf();
         } else {
@@ -51,17 +51,6 @@ function Signup() {
                             className="form-control"
                             name="username"
                             id="username"
-                            required
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="fullname" className="form-label">Full Name</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            name="fullname"
-                            id="fullname"
                             required
                             onChange={handleChange}
                         />

@@ -95,10 +95,10 @@ function GroupPage() {
                                     type="text"
                                     value={nomCategorie}
                                     onChange={(e) => setNomCategorie(e.target.value)}
-                                    placeholder="Nom de la catégorie"
+                                    placeholder="Category Name"
                                     required
                                 />
-                                <button type="submit">Créer Catégorie</button>
+                                <button type="submit">Create Category</button>
                             </form>
 
                             <div className="row">
@@ -124,7 +124,7 @@ function GroupPage() {
                                                     data-target="#activiteModal"
                                                     onClick={() => setActuelleCategorieId(categorie.idcategorie)}
                                                 >
-                                                    Ajouter élève
+                                                    Add Student
                                                 </button>
                                             </div>
                                         </div>
@@ -138,7 +138,7 @@ function GroupPage() {
                                 <div className="modal-dialog" role="document">
                                     <div className="modal-content">
                                         <div className="modal-header">
-                                            <h5 className="modal-title" id="exampleModalLabel">Liste des élèves</h5>
+                                            <h5 className="modal-title" id="exampleModalLabel">List of Students</h5>
                                             <button type="button" className="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -150,7 +150,7 @@ function GroupPage() {
                                                     <li key={eleve.ideleve}>
                                                         <button
                                                             onClick={() => createActivite(eleve.ideleve)}
-                                                            className="btn btn-link"
+                                                            className="btn"
                                                         >
                                                             {eleve.firstname} {eleve.lastname}
                                                         </button>
