@@ -6,19 +6,19 @@ import "./GroupePage.css";
 import Navbar from "../components/Navbar.jsx";
 import Sidebar from "../components/Sidebar.jsx";
 
-
 function GroupPage() {
     const { id } = useParams();
     const [eleves, setEleves] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [activites, setActivites] = useState([]);
     const [nomCategorie, setNomCategorie] = useState("");
     const [actuelleCategorieId, setActuelleCategorieId] = useState(null);
-
 
     useEffect(() => {
         if (id) {
             fetchEleves();
             fetchCategories();
+            fetchActivites();
         }
     }, [id]);
 
@@ -31,8 +31,6 @@ function GroupPage() {
         }
     };
 
-
-
     const fetchCategories = async () => {
         try {
             const response = await axios.get("http://localhost:8181/categorie/read");
@@ -42,7 +40,14 @@ function GroupPage() {
         }
     };
 
-
+    const fetchActivites = async () => {
+        try {
+            const response = await axios.get("http://localhost:8181/activite/read");
+            setActivites(response.data);
+        } catch (error) {
+            console.error("Erreur lors du chargement des activités :", error);
+        }
+    };
 
     const createCategorie = async (e) => {
         e.preventDefault();
@@ -57,8 +62,6 @@ function GroupPage() {
         }
     };
 
-
-
     const createActivite = async (eleveId) => {
         try {
             await axios.post("http://localhost:8181/activite/historique", {
@@ -66,10 +69,9 @@ function GroupPage() {
                 categorie: { idcategorie: actuelleCategorieId },
                 date: new Date()
             });
-            alert("Activité créée avec succès");
+            await fetchActivites();
         } catch (error) {
             console.error(error);
-            alert("L'activité n'a pas pu être créée");
         }
     };
 
@@ -102,9 +104,20 @@ function GroupPage() {
                             <div className="row">
                                 {categories.map((categorie) => (
                                     <div className="col-md-4 mb-4" key={categorie.idcategorie}>
-                                        <div className="card">
+                                        <div className="cardCat">
                                             <div className="card-body">
                                                 <h5>{categorie.nomcategorie}</h5>
+
+                                                <ul>
+                                                    {activites
+                                                        .filter(act => act.categorie.idcategorie === categorie.idcategorie)
+                                                        .map((act, idx) => (
+                                                            <li key={idx}>
+                                                                {act.eleve.firstname} {act.eleve.lastname}
+                                                            </li>
+                                                        ))}
+                                                </ul>
+
                                                 <button
                                                     className="btn btn-primary mt-2"
                                                     data-toggle="modal"
@@ -121,8 +134,7 @@ function GroupPage() {
 
                             {/* Modal commun à toutes les catégories */}
                             <div className="modal fade" id="activiteModal" tabIndex="-1" role="dialog"
-                                 aria-labelledby="exampleModalLabel"
-                                 aria-hidden="true">
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div className="modal-dialog" role="document">
                                     <div className="modal-content">
                                         <div className="modal-header">
