@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProfRepository extends JpaRepository<Prof, Long> {
     Prof findByUsername(String username);
-    Prof findByIdprof(Long idprof);
 }

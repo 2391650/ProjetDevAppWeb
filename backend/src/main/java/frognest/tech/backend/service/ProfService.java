@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+// @author Tarek
 @Service
 public class ProfService {
     private final ProfRepository profRepository;
@@ -31,9 +32,6 @@ public class ProfService {
             return prof;
         }
         return null;
-    }
-    public Prof findProfbyId(Long idprof) {
-        return profRepository.findByIdprof(idprof);
     }
 
     public Prof findByUsername(String username) {
