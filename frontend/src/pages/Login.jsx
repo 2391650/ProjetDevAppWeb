@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./Login.css"
+import "../css/Login.css"
 import Navbar from '../components/Navbar';
 import {Link, useNavigate} from "react-router-dom";
 

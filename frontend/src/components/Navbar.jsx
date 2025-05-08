@@ -1,5 +1,5 @@
 import React from "react";
-import "./Navbar.css";
+import "../css/Navbar.css";
 import logo from "../assets/images/HopQuest_Logo.png";
 
 function Navbar() {

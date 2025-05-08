@@ -8,7 +8,7 @@ import purple from "../assets/images/purpleWaves.png";
 import yellow from "../assets/images/yellowWaves.png";
 import dots from "../assets/images/dots.png"
 import {Link} from "react-router-dom";
-import './GroupCards.css';
+import '../css/GroupCards.css';
 
 // @author Tarek
 function GroupCards() {

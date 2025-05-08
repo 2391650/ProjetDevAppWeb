@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from "../components/Navbar.jsx";
-import "./HomePage.css"
+import "../css/HomePage.css"
 import logo from "../assets/images/HopQuest_Logo.png";
 import {Link} from "react-router-dom";
 

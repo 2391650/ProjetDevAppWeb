@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import CreateEleve from './CreateEleve';
-import "./GroupPage.css";
+import "../css/GroupPage.css";
 import Navbar from "../components/Navbar.jsx";
 import Sidebar from "../components/Sidebar.jsx";
 
@@ -27,13 +27,13 @@ function GroupPage() {
             const response = await axios.get(`http://localhost:8181/eleve/read/${id}`);
             setEleves(response.data);
         } catch (error) {
-            console.error("Erreur lors du fetch des élèves :", error);
+            console.error(error);
         }
     };
 
     const fetchCategories = async () => {
         try {
-            const response = await axios.get("http://localhost:8181/categorie/read");
+            const response = await axios.get(`http://localhost:8181/categorie/groupe/${id}`);
             setCategories(response.data);
         } catch (error) {
             console.error(error);
@@ -54,6 +54,7 @@ function GroupPage() {
         try {
             const response = await axios.post("http://localhost:8181/categorie/create", {
                 nomcategorie: nomCategorie,
+                groupe: { idgroup: parseInt(id) }  // Envoie le groupe associé
             });
             setCategories(prev => [...prev, response.data]);
             setNomCategorie("");
@@ -107,16 +108,16 @@ function GroupPage() {
                                         <div className="cardCat">
                                             <div className="card-body">
                                                 <h5>{categorie.nomcategorie}</h5>
-
                                                 <ul>
                                                     {activites
                                                         .filter(act => act.categorie.idcategorie === categorie.idcategorie)
                                                         .map((act, idx) => (
                                                             <li key={idx}>
-                                                                {act.eleve.firstname} {act.eleve.lastname}
+                                                                {act.eleve.firstname} {act.eleve.lastname} – {new Date(act.date).toLocaleString()}
                                                             </li>
                                                         ))}
                                                 </ul>
+
 
                                                 <button
                                                     className="btn btn-primary mt-2"

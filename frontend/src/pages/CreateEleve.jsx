@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import dots from "../assets/images/dots.png";
-import "./CreateEleve.css"
+import "../css/CreateEleve.css"
 import {Link} from "react-router-dom";
 
 function CreateEleve({ groupId }) {

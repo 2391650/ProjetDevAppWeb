@@ -1,18 +1,22 @@
 package frognest.tech.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Categorie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     private Long idcategorie;
 
     private String nomcategorie;
+
+    @ManyToOne
+    @JoinColumn(name = "groupe_id")
+    private Groupe groupe;
+
 
     public Long getIdcategorie() {
         return idcategorie;
@@ -28,5 +32,13 @@ public class Categorie {
 
     public void setNomcategorie(String nomcategorie) {
         this.nomcategorie = nomcategorie;
+    }
+
+    public Groupe getGroupe() {
+        return groupe;
+    }
+
+    public void setGroupe(Groupe groupe) {
+        this.groupe = groupe;
     }
 }

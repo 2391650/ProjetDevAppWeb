@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import GroupCards from "../components/GroupCards.jsx";
-import './Groups.css'
+import '../css/Groups.css'
 import {useNavigate} from "react-router-dom";
 
 function Groups() {
