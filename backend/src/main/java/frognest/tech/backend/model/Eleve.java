@@ -19,7 +19,8 @@ public class Eleve {
     Groupe groupe;
 
 
-    // Solution proposée par ChatGPT, méthode peu recommandée, supression en cascade
+    // Solution TEMPORAIRE proposée par ChatGPT, méthode peu recommandée, supression en cascade
+    // Méthode choisie TEMPORAIREMENT parce que j'était trop fatigué pour chercher une autre solution (méthode de service)
     @OneToMany(mappedBy = "eleve", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Activite> activites;
 
