@@ -43,7 +43,7 @@ function Login() {
                     <input
                         type="password"
                         className="form-control"
-                        id="password"
+                        id="passwd"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required

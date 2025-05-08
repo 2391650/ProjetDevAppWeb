@@ -1,22 +1,16 @@
-package frognest.tech.backend.Chrome;
+package frognest.tech.backend.Edge;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 
 // @author Alex
 @SpringBootTest
-public class ChromeTest {
-    WebDriver driver = new ChromeDriver();
-
-//    @BeforeEach
-//    public void setUp(){
-//        System.setProperty("webdriver.chrome.driver", "./data/chromedriver.exe");
-//    }
+public class EdgeTest {
+    WebDriver driver = new EdgeDriver();
 
     @Test
     public void SignupLogin() throws InterruptedException {

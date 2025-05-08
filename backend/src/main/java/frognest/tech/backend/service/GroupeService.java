@@ -42,10 +42,6 @@ public class GroupeService {
         return true;
     }
 
-
-
-
-
     public boolean deleteGroupById(Long idGroupe) {
         Groupe groupe = groupeRepository.findAllByIdgroup(idGroupe);
         if (groupe == null) {
@@ -60,11 +56,6 @@ public class GroupeService {
         groupeRepository.delete(groupe);
         return true;
     }
-
-
-
-
-
 
     public List<Groupe> getGroupsByProfId(Long profId) {
         Prof prof = new Prof();
