@@ -1,17 +1,12 @@
 package frognest.tech.backend.controller;
 
-import frognest.tech.backend.model.Eleve;
 import frognest.tech.backend.model.GroupDTO;
 import frognest.tech.backend.model.Groupe;
-import frognest.tech.backend.model.Prof;
-import frognest.tech.backend.repositories.GroupeRepository;
-import frognest.tech.backend.repositories.EleveRepository;
-import frognest.tech.backend.repositories.ProfRepository;
+import frognest.tech.backend.service.GroupeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/groupe")
@@ -19,60 +14,30 @@ import java.util.Optional;
 public class GroupeController {
 
     @Autowired
-    private GroupeRepository groupeRepository;
-
-    @Autowired
-    private EleveRepository eleveRepository;
+    private GroupeService groupeService;
 
     @GetMapping("/read")
     public List<Groupe> getAll() {
-        return groupeRepository.findAll();
+        return groupeService.getAll();
     }
 
     @GetMapping("/read/{profId}")
     public List<Groupe> getGroupsByProfId(@PathVariable Long profId) {
-        Prof prof = new Prof();
-        prof.setIdprof(profId); // Assurez-vous que l'ID est correct
-        return groupeRepository.findAllByProf(prof); // Assurez-vous que cette méthode existe
+        return groupeService.getGroupsByProfId(profId);
     }
-
-
 
     @PostMapping("/create")
     public boolean createGroup(@RequestBody GroupDTO.GroupeDTO dto) {
-        if (groupeRepository.existsByNomGroupe(dto.getNomGroupe())) {
-            return false;
-        }
-
-        Groupe groupe = new Groupe();
-        groupe.setNomGroupe(dto.getNomGroupe());
-
-
-        Prof prof = new Prof();
-        prof.setIdprof(dto.getProfId());
-        groupe.setProf(prof);
-
-        groupeRepository.save(groupe);
-        return true;
+        return groupeService.createGroup(dto);
     }
-
 
     @DeleteMapping("/delete/{idGroupe}")
     public String deleteGroupById(@PathVariable Long idGroupe) {
-        Groupe groupe = groupeRepository.findAllByIdgroup(idGroupe);
-        if (groupe == null) {
-            throw new RuntimeException("Not found: " + idGroupe);
+        boolean deleted = groupeService.deleteGroupById(idGroupe);
+        if (deleted) {
+            return idGroupe + "' has been deleted ";
+        } else {
+            return  idGroupe + "' not found.";
         }
-
-
-        List<Eleve> eleves = eleveRepository.findByGroupe(groupe);
-        for (Eleve eleve : eleves) {
-            eleveRepository.delete(eleve);
-        }
-
-        // Supprimer le groupe
-        groupeRepository.delete(groupe);
-        return "Group '" + idGroupe + "' has been deleted successfully.";
     }
-
 }
