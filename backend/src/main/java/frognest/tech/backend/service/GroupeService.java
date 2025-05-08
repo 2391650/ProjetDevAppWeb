@@ -1,12 +1,7 @@
 package frognest.tech.backend.service;
 
-import frognest.tech.backend.model.GroupDTO;
-import frognest.tech.backend.model.Groupe;
-import frognest.tech.backend.model.Prof;
-import frognest.tech.backend.repositories.GroupeRepository;
-import frognest.tech.backend.repositories.EleveRepository;
-import frognest.tech.backend.model.Eleve;
-import frognest.tech.backend.repositories.ProfRepository;
+import frognest.tech.backend.model.*;
+import frognest.tech.backend.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +18,13 @@ public class GroupeService {
 
     @Autowired
     private ProfRepository profRepository;
+
+    @Autowired
+    private ActiviteRepository activiteRepository;
+
+    @Autowired
+    private CategorieRepository categorieRepository;
+
 
     public boolean createGroup(GroupDTO.GroupeDTO dto) {
         if (groupeRepository.existsByNomGroupe(dto.getNomGroupe())) {
@@ -48,12 +50,25 @@ public class GroupeService {
             throw new RuntimeException("Not found: " + idGroupe);
         }
 
+
         List<Eleve> eleves = eleveRepository.findByGroupe(groupe);
         for (Eleve eleve : eleves) {
+            List<Activite> activites = activiteRepository.findByEleve(eleve);
+            for (Activite activite : activites) {
+                activiteRepository.delete(activite);
+            }
             eleveRepository.delete(eleve);
         }
 
+
+        List<Categorie> categories = categorieRepository.findByGroupe(groupe);
+        for (Categorie categorie : categories) {
+            categorieRepository.delete(categorie);
+        }
+
+
         groupeRepository.delete(groupe);
+
         return true;
     }
 
