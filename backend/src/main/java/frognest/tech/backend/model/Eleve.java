@@ -2,6 +2,8 @@ package frognest.tech.backend.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Eleve {
     @Id
@@ -15,6 +17,12 @@ public class Eleve {
     @ManyToOne
     @JoinColumn(name="idgroup")
     Groupe groupe;
+
+
+    // Solution proposée par ChatGPT, méthode peu recommandée, supression en cascade
+    @OneToMany(mappedBy = "eleve", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Activite> activites;
+
 
     public Long getIdeleve() {
         return ideleve;
