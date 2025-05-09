@@ -2,8 +2,6 @@ package frognest.tech.backend.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 public class Eleve {
     @Id
@@ -17,10 +15,6 @@ public class Eleve {
     @ManyToOne
     @JoinColumn(name="idgroup")
     Groupe groupe;
-
-
-
-
 
     public Long getIdeleve() {
         return ideleve;

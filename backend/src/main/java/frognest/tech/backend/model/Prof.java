@@ -14,7 +14,6 @@ public class Prof {
     private String username;
     private String passwd;
 
-
     public Long getIdprof() {
         return idprof;
     }

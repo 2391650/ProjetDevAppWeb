@@ -8,7 +8,6 @@ public class Categorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-
     private Long idcategorie;
 
     private String nomcategorie;
@@ -16,7 +15,6 @@ public class Categorie {
     @ManyToOne
     @JoinColumn(name = "groupe_id")
     private Groupe groupe;
-
 
     public Long getIdcategorie() {
         return idcategorie;

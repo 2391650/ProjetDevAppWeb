@@ -6,7 +6,6 @@ import frognest.tech.backend.repositories.CategorieRepository;
 import frognest.tech.backend.repositories.GroupeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

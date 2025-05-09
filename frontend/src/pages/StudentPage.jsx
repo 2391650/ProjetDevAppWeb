@@ -28,18 +28,18 @@ function StudentPage() {
             <div style={{ display: "flex" }}>
                 <Sidebar />
                 <div style={{ padding: "20px", flex: 1 }}>
-                    <h2>Activités de l'élève {ideleve}</h2>
+                    <h2>Student's activities {ideleve}</h2>
                     {activites.length > 0 ? (
                         <ul className="list-group">
                             {activites.map((act, index) => (
                                 <li key={index} className="list-group-item">
-                                    <strong>Catégorie :</strong> {act.categorie.nomcategorie}<br />
+                                    <strong>Category :</strong> {act.categorie.nomcategorie}<br />
                                     <strong>Date :</strong> {new Date(act.date).toLocaleString()}
                                 </li>
                             ))}
                         </ul>
                     ) : (
-                        <p>Aucune activité enregistrée.</p>
+                        <p>No activity registered.</p>
                     )}
                 </div>
             </div>

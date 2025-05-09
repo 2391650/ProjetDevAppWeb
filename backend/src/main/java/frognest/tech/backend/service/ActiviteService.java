@@ -4,7 +4,6 @@ import frognest.tech.backend.model.Activite;
 import frognest.tech.backend.repositories.ActiviteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

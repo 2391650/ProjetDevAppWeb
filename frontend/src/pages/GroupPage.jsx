@@ -56,6 +56,7 @@ function GroupPage() {
                 nomcategorie: nomCategorie,
                 groupe: { idgroup: parseInt(id) }  // Envoie le groupe associé
             });
+            await fetchEleves();
             setCategories(prev => [...prev, response.data]);
             setNomCategorie("");
         } catch (error) {
@@ -75,8 +76,6 @@ function GroupPage() {
             console.error(error);
         }
     };
-
-
 
     return (
         <div>
@@ -101,7 +100,6 @@ function GroupPage() {
                                 />
                                 <button type="submit">Create Category</button>
                             </form>
-
                             <div className="row">
                                 {categories.map((categorie) => (
                                     <div className="col-md-4 mb-4" key={categorie.idcategorie}>
@@ -117,8 +115,6 @@ function GroupPage() {
                                                             </li>
                                                         ))}
                                                 </ul>
-
-
                                                 <button
                                                     className="btn btn-primary mt-2"
                                                     data-toggle="modal"
@@ -132,8 +128,6 @@ function GroupPage() {
                                     </div>
                                 ))}
                             </div>
-
-                            {/* Modal commun à toutes les catégories */}
                             <div className="modal fade" id="activiteModal" tabIndex="-1" role="dialog"
                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div className="modal-dialog" role="document">
@@ -162,7 +156,6 @@ function GroupPage() {
                                     </div>
                                 </div>
                             </div>
-                            {/* Fin modal */}
                         </div>
                     </div>
                 </div>

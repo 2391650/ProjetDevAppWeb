@@ -1,7 +1,6 @@
 package frognest.tech.backend.model;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
@@ -16,7 +15,6 @@ public class Activite {
       Categorie categorie;
       @ManyToOne
       Eleve eleve;
-
 
     public Long getIdactivity() {
         return idactivity;

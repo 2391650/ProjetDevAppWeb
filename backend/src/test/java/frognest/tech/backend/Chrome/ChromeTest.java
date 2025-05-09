@@ -38,7 +38,5 @@ public class ChromeTest {
         usernameInput2.sendKeys("alexandros");
         passwdInput2.sendKeys("123");
         loginBtn.click();
-
     }
-
 }

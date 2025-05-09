@@ -1,6 +1,5 @@
 package frognest.tech.backend.repositories;
 
-
 import frognest.tech.backend.model.Categorie;
 import frognest.tech.backend.model.Groupe;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,7 +12,4 @@ public interface CategorieRepository extends JpaRepository<Categorie, Long> {
     List<Categorie> findByGroupe_Idgroup(Long  idgroup);
 
     List<Categorie> findByGroupe(Groupe groupe);
-
-
-
 }

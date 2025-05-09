@@ -13,12 +13,12 @@ function Groups() {
     if (!localId) {
         navigate("/login"); // si pas connecté reste bloqué sur la page login
     }
+
   return (
     <div>
       <Navbar />
       <div style={{ display: "flex" }}>
         <Sidebar />
-
         <div className='background' >
             <GroupCards/>
         </div>

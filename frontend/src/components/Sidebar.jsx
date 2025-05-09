@@ -8,12 +8,12 @@ function Sidebar() {
     <div className="navMenu">
       <ul className='text-light'>
         <li className="nav-item">
-          <Link class="nav-link" to="/groups">
+          <Link className="nav-link" to="/groups">
             Groups
           </Link>
         </li>
         <li className="nav-item sign-out">
-          <Link class="nav-link" to="/login">
+          <Link className="nav-link" to="/login">
             Sign Out
           </Link>
         </li>

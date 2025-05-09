@@ -4,7 +4,6 @@ import frognest.tech.backend.model.*;
 import frognest.tech.backend.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -39,7 +38,6 @@ public class GroupeService {
             throw new IllegalArgumentException("Le prof est absent, il sèche les cours");
         }
         groupe.setProf(prof);
-
         groupeRepository.save(groupe);
         return true;
     }
@@ -50,7 +48,6 @@ public class GroupeService {
             throw new RuntimeException("Not found: " + idGroupe);
         }
 
-
         List<Eleve> eleves = eleveRepository.findByGroupe(groupe);
         for (Eleve eleve : eleves) {
             List<Activite> activites = activiteRepository.findByEleve(eleve);
@@ -60,15 +57,11 @@ public class GroupeService {
             eleveRepository.delete(eleve);
         }
 
-
         List<Categorie> categories = categorieRepository.findByGroupe(groupe);
         for (Categorie categorie : categories) {
             categorieRepository.delete(categorie);
         }
-
-
         groupeRepository.delete(groupe);
-
         return true;
     }
 

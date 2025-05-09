@@ -10,7 +10,6 @@ import dots from "../assets/images/dots.png"
 import {Link} from "react-router-dom";
 import '../css/GroupCards.css';
 
-// @author Tarek
 function GroupCards() {
     const [groups, setGroups] = useState([]);
     const [nomGroupe, setNomGroupe] = useState("");
@@ -34,7 +33,6 @@ function GroupCards() {
             return;
         }
 
-// @author Alex, Tarek
         await axios.post('http://localhost:8181/groupe/create', { nomGroupe, profId });
         setNomGroupe("");
         fetchGroups();
@@ -70,7 +68,7 @@ function GroupCards() {
                                     placeholder="Nom du groupe"
                                     required
                                 />
-                                <button type="submit">Créer Groupe</button>
+                                <button type="submit">Create Groupe</button>
                             </form>
                         </div>
                     </div>
@@ -104,7 +102,8 @@ function GroupCards() {
                                 </div>
                             </div>
                             <div className="card-body bg-dark">
-                                <p className="text-light"> Students</p>
+                                <br/>
+                                <br/>
                                 <Link to={`/group/${group.idgroup}`}>
                                     <button className="groupBtn btn text-info">
                                         See Group
